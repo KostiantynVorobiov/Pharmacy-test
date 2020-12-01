@@ -9,7 +9,7 @@ public class UserResponseDto {
     private Long id;
     private String firstName;
     private String secondName;
-    private int dateOfBirth;
+    private String dateOfBirth;
     private boolean isMarried;
     private String typeOfEducation;
 }

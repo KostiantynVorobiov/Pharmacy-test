@@ -8,7 +8,7 @@ import lombok.Data;
 public class UserRequestDto {
     private String firstName;
     private String secondName;
-    private int dateOfBirth;
+    private String dateOfBirth;
     private boolean isMarried;
     private String typeOfEducation;
 }
