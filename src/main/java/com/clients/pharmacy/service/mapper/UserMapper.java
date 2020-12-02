@@ -3,10 +3,9 @@ package com.clients.pharmacy.service.mapper;
 import com.clients.pharmacy.entity.User;
 import com.clients.pharmacy.entity.dto.UserRequestDto;
 import com.clients.pharmacy.entity.dto.UserResponseDto;
-import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import org.springframework.stereotype.Service;
 
 @Service
 public class UserMapper {

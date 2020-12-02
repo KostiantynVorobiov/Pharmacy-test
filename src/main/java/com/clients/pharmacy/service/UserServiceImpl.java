@@ -5,14 +5,13 @@ import com.clients.pharmacy.entity.dto.UserRequestDto;
 import com.clients.pharmacy.entity.dto.UserResponseDto;
 import com.clients.pharmacy.repository.UserRepository;
 import com.clients.pharmacy.service.mapper.UserMapper;
+import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-import java.util.stream.Collectors;
-
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
