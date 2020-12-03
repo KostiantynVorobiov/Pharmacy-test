@@ -24,9 +24,9 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String firstName;
-    private String secondName;
+    private String lastName;
     private LocalDate dateOfBirth;
-    private boolean isMarried;
+    private boolean married;
     private String typeOfEducation;
     @ManyToOne
     @JoinColumn(name = "family_id")

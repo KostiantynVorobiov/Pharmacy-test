@@ -14,9 +14,9 @@ public class UserMapper {
     public User mapToModel(UserRequestDto userRequestDto) {
         return User.builder()
                 .firstName(userRequestDto.getFirstName())
-                .secondName(userRequestDto.getSecondName())
+                .lastName(userRequestDto.getLastName())
                 .dateOfBirth(LocalDate.parse(userRequestDto.getDateOfBirth(), formatter))
-                .isMarried(userRequestDto.isMarried())
+                .married(userRequestDto.isMarried())
                 .typeOfEducation(userRequestDto.getTypeOfEducation())
                 .build();
     }
@@ -25,9 +25,9 @@ public class UserMapper {
         return UserResponseDto.builder()
                 .id(user.getId())
                 .firstName(user.getFirstName())
-                .secondName(user.getSecondName())
+                .lastName(user.getLastName())
                 .dateOfBirth(user.getDateOfBirth().format(formatter))
-                .isMarried(user.isMarried())
+                .married(user.isMarried())
                 .typeOfEducation(user.getTypeOfEducation())
                 .build();
     }

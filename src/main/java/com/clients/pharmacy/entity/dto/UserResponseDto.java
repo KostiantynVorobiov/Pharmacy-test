@@ -8,8 +8,8 @@ import lombok.Data;
 public class UserResponseDto {
     private Long id;
     private String firstName;
-    private String secondName;
+    private String lastName;
     private String dateOfBirth;
-    private boolean isMarried;
+    private boolean married;
     private String typeOfEducation;
 }

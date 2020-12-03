@@ -8,6 +8,7 @@ import com.clients.pharmacy.repository.FamilyRepository;
 import com.clients.pharmacy.repository.UserRepository;
 import com.clients.pharmacy.service.mapper.UserMapper;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,8 @@ public class UserServiceImpl implements UserService {
     private final UserMapper userMapper;
 
     @Autowired
-    public UserServiceImpl(UserRepository userRepository, FamilyRepository familyRepository, UserMapper userMapper) {
+    public UserServiceImpl(UserRepository userRepository,
+                           FamilyRepository familyRepository, UserMapper userMapper) {
         this.userRepository = userRepository;
         this.familyRepository = familyRepository;
         this.userMapper = userMapper;
@@ -30,18 +32,18 @@ public class UserServiceImpl implements UserService {
     @Transactional
     public User add(UserRequestDto userRequestDto) {
         User user = userMapper.mapToModel(userRequestDto);
-        if(user.isMarried() == true) {
-            if (familyRepository.findBySurname(user.getSecondName()) == null) {
+        Optional<Family> familyFromDB = Optional
+                .ofNullable(familyRepository.findBySurname(user.getLastName()));
+        if (user.isMarried()) {
+            if (familyFromDB.isPresent()
+                    && familyFromDB.get().getSurname().equals(user.getLastName())) {
+                user.setFamily(familyFromDB.get());
+            } else {
                 Family family = new Family();
-                family.setSurname(user.getSecondName());
+                family.setSurname(user.getLastName());
                 user.setFamily(family);
                 family.setMembers(List.of(user));
                 familyRepository.save(family);
-            } else if (familyRepository.findBySurname(user.getSecondName()).getSurname().equals(user.getSecondName())){
-                Family familyBySurname = familyRepository.findBySurname(user.getSecondName());
-                List<User> members = familyBySurname.getMembers();
-                members.add(user);
-                familyRepository.save(familyBySurname);
             }
         }
         return userRepository.save(user);
@@ -68,7 +70,6 @@ public class UserServiceImpl implements UserService {
         User userFromDto = userMapper.mapToModel(userRequestDto);
         userFromDto.setId(userById.getId());
         userRepository.save(userFromDto);
-
     }
 
     @Override
@@ -81,6 +82,5 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByFirstName(name).stream()
                 .map(userMapper::mapToResponseDto)
                 .collect(Collectors.toList());
-
     }
 }

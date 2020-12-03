@@ -30,9 +30,9 @@ Body -> raw -> Text (JSON):
 ```json
 {
     "firstName": "David", 
-    "secondName": "Davidson", 
+    "lastName": "Davidson", 
     "dateOfBirth": "11.09.1975", 
-    "isMarried": true, 
+    "married": true, 
     "typeOfEducation": "bachelors degree"
 }
 ```
@@ -41,9 +41,9 @@ __PUT__: `localhost:8080/users/<id>` - оновить існуючого кор�
 ```json
 {
     "firstName": "Ivan", 
-        "secondName": "Ivanov", 
+        "lastName": "Ivanov", 
         "dateOfBirth": "22.03.1980", 
-        "isMarried": true, 
+        "married": true, 
         "typeOfEducation": "specialist degree"
 }
 ```
