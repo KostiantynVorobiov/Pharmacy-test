@@ -16,6 +16,7 @@ public class FamilyServiceImpl {
         this.familyRepository = familyRepository;
     }
 
+    // for checking findBySecondName method
     public void add(){
         User bob = new User();
         bob.setFirstName("Bob");

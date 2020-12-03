@@ -25,14 +25,34 @@ public class DataInitializer {
     }
 
     private void saveUsers() {
-//        UserRequestDto bob = new UserRequestDto("Bob", "Alison",
-//                "10.01.2000", false, "master's degree");
-//        userService.add(bob);
-//        UserRequestDto alice = new UserRequestDto("Alice", "Tomson",
-//                "18.05.1989", false, "master's degree");
-//        userService.add(alice);
-//        UserRequestDto tom = new UserRequestDto("Tom", "Bobson",
-//                "25.12.2012", true, "master's degree");
-//        userService.add(tom);
+        UserRequestDto alice = new UserRequestDto("Alica", "Bobson",
+                "10.01.2000", true, "master's degree");
+        userService.add(alice);
+        UserRequestDto tom = new UserRequestDto("Tom", "Alicon",
+                "18.05.1989", true, "master's degree");
+        userService.add(tom);
+        UserRequestDto david = new UserRequestDto("David", "Bobson",
+                "25.12.2012", true, "master's degree");
+        userService.add(david);
     }
+
+    /* JSON for Postman
+    "firstName": "Alica",
+"secondName": "Bobson",
+"dateOfBirth": "11.07.1999",
+"isMarried": true,
+"typeOfEducation": "master's degree"
+
+"firstName": "Tom",
+"secondName": "Aliconson",
+"dateOfBirth": "11.05.2010",
+"isMarried": true,
+"typeOfEducation": "master's degree"
+
+"firstName": "David",
+"secondName": "Bobson",
+"dateOfBirth": "19.01.1985",
+"isMarried": true,
+"typeOfEducation": "master's degree"
+     */
 }
