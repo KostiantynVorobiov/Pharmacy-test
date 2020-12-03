@@ -25,14 +25,14 @@ public class DataInitializer {
     }
 
     private void saveUsers() {
-        UserRequestDto bob = new UserRequestDto("Bob", "Alison",
-                "10.01.2000", false, "master's degree");
-        userService.add(bob);
-        UserRequestDto alice = new UserRequestDto("Alice", "Tomson",
-                "18.05.1989", false, "master's degree");
-        userService.add(alice);
-        UserRequestDto tom = new UserRequestDto("Tom", "Bobson",
-                "25.12.2012", true, "master's degree");
-        userService.add(tom);
+//        UserRequestDto bob = new UserRequestDto("Bob", "Alison",
+//                "10.01.2000", false, "master's degree");
+//        userService.add(bob);
+//        UserRequestDto alice = new UserRequestDto("Alice", "Tomson",
+//                "18.05.1989", false, "master's degree");
+//        userService.add(alice);
+//        UserRequestDto tom = new UserRequestDto("Tom", "Bobson",
+//                "25.12.2012", true, "master's degree");
+//        userService.add(tom);
     }
 }
