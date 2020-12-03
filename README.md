@@ -1,4 +1,4 @@
-# jv-spring-boot-docker
+# jv-spring-boot
 
 #### Технології: 
 Spring Boot, Spring Security (inMemoryAuthentication), JpaRepository, H2, REST
